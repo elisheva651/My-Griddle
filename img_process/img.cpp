@@ -19,8 +19,8 @@ Image::Image(const std::string& jpg_path)
 
     m_pixels = Matrix<RGB>(m_img_size.first, m_img_size.second);
 
-    for (uint8_t i = 0; i < img.rows; ++i) {
-        for (uint8_t j = 0; j < img.cols; ++j) {
+    for (int i = 0; i < img.rows; ++i) {
+        for (int j = 0; j < img.cols; ++j) {
             cv::Vec3b bgr = img.at<cv::Vec3b>(i, j);
             m_pixels[i][j] = RGB{
                 static_cast<unsigned char>(bgr[2]), // R

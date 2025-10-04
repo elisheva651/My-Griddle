@@ -1,33 +1,36 @@
 #pragma once
 
 #include <map>
-
-#include "abs_processor.hpp"
+#include <vector>
+#include "../matrix.hpp"
+#include "../pixel.hpp"
+#include "../img.hpp"
 
 namespace img
 {
 
-using Type = uint16_t;
+using Type = unsigned char; // or whatever your pixel channel type is
 
-class ColorReduction : public AbsProcessors
+class ColorReductionData;
+
+class ColorReduction
 {
 public:
-    explicit ColorReduction(int reduce_factor = 0);
-    ~ColorReduction() noexcept override = default;
+    explicit ColorReduction(int reduce_factor);
 
-    Image process(Image const &source) override;
+    Image process(Image const &source);
+
 private:
     int reduce_factor_;
-
-private:
     std::vector<std::map<Type, Type>> fill_reduction_map(int reduce_factor);
-
 };
 
-struct ColorReductionData
+class ColorReductionData
 {
-    ColorReductionData(Image const& source, int reduce_factor);
-    ~ColorReductionData() noexcept = default;
+public:
+    ColorReductionData(Image const &source,
+                       int reduce_factor,
+                       std::vector<std::map<Type, Type>> reduction_map);
 
     size_t height_;
     size_t width_;

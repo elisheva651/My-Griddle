@@ -28,7 +28,7 @@ void GameManager::run()
         return;
     }
     
-    game->run();
+    // game->run();
     
     // if (game.run(); != Status::SUCCESS) {
     //     return;

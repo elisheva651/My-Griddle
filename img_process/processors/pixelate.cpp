@@ -30,7 +30,7 @@ PixelateData::PixelateData(Image const &source, size_t square_wall_len)
 {
 }
 
-void avg_each_channel(Image const &source, PixelateData const& data, Matrix<RGB>& pixels, size_t block_row, size_t block_col) {
+void Pixelate::avg_each_channel(Image const &source, PixelateData const& data, Matrix<RGB>& pixels, size_t block_row, size_t block_col) {
     size_t real_block_height = std::min(data.square_wall_len_, data.height_ - block_row);
     size_t real_block_width  = std::min(data.square_wall_len_, data.width_ - block_col);
 

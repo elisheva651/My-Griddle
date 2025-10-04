@@ -21,7 +21,6 @@ public:
 
 private:
     size_t square_wall_len_;
-    size_t num_threads_;
 
 private:
     void avg_each_channel(Image const &source, PixelateData const& data, Matrix<RGB>& pixels, size_t block_row, size_t block_col);

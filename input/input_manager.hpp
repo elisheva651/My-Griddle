@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include <memory>
 
-#include "../status.hpp"
+#include "../general_constants.hpp"
 #include "input_options/abs_get_img.hpp"
 
 // --------loaders--------//

@@ -1,7 +1,6 @@
-#include "input/input_manager.hpp"
-#include "game/game.hpp"
+#include "game/game_manager.hpp"
 
 int main() {
-    InputManager input_manager{};
-    input_manager.get_input();
+    GameManager game_manager{};
+    game_manager.run();
 }

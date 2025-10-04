@@ -16,8 +16,9 @@ LDFLAGS := $(OPENCV_LDFLAGS)
 TARGET := my_game
 
 # Source files
-SRCS := $(wildcard *.cpp) $(wildcard input/**/*.cpp) $(wildcard game/**/*.cpp) \
-		$(wildcard game/*.cpp) $(wildcard input/*.cpp)
+SRCS := $(wildcard *.cpp) $(wildcard input/*.cpp) $(wildcard input/**/*.cpp) \
+		$(wildcard game/**/*.cpp) $(wildcard game/*.cpp) \
+		$(wildcard img_process/*.cpp) 
 
 # Object files
 OBJS := $(SRCS:.cpp=.o)

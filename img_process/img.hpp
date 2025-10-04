@@ -2,40 +2,28 @@
 
 #include <vector>
 #include <cstddef>
-#include <algorithm>  
-#include <cmath>
+#include <utility>
 #include <cassert>
-
-#include "img/constants.hpp"
-#include "read_write/writer.hpp"
-#include "img/pixels/pixel_abs.hpp"
-#include "matrix.hpp"
+#include "matrix.hpp"   // your Matrix class
+#include "pixel.hpp"    // defines struct RGB
 
 namespace img
 {
 
-template <typename T = default_img_values_type> 
 class Image
 {
-
 public:
-    Image(const std::string& jpg_path, std::vector<std::pair<T, T>> ranges);
+    explicit Image(const std::string& jpg_path);
     ~Image() noexcept = default;
 
-    PixelRgb<T>* operator[](size_t row) noexcept;
-
-    const PixelRgb<T>* operator[](size_t row) const noexcept;
+    RGB* operator[](size_t row) noexcept;
+    const RGB* operator[](size_t row) const noexcept;
     
-    // friend Writer<T>;
     std::pair<size_t, size_t> get_img_size() const;
-    std::vector<std::pair<T, T>> get_ranges() const;
 
 private:
-    Matrix<PixelRgb<T>> pixels_; ///< Matrix storing the pixel data.
-    std::vector<std::pair<T, T>> range_each_channel_; ///< Value range (min, max) for each channel.
-    std::pair<size_t, size_t> img_size_; ///< Dimensions of the image (height, width).
+    Matrix<RGB> m_pixels;                          ///< Matrix storing the pixel data.
+    std::pair<size_t, size_t> m_img_size;          ///< Dimensions of the image (height, width).
 };
 
 } // namespace img
-
-#include "img.inl"

@@ -22,7 +22,7 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Virtual environments (if any)
+# Virtual environments
 venv/
 env/
 .venv/
@@ -34,7 +34,7 @@ env/
 .vscode/
 *.code-workspace
 
-# JetBrains IDEs (CLion, PyCharm)
+# JetBrains IDEs
 .idea/
 *.iml
 
@@ -53,12 +53,17 @@ Desktop.ini
 $RECYCLE.BIN/
 
 # =============================
-# Temporary / input files
+# Temporary / generated images
 # =============================
-# Images uploaded / generated
-input/input_img.jpg
-input/*.jpg
-input/*.png
+# Ignore all game-generated images
+game/*.jpg
+game/*.png
 
-# Any temporary logs
+# Ignore temporary input images
+input/temp_*.jpg
+input/temp_*.png
+
+# =============================
+# Logs
+# =============================
 *.log

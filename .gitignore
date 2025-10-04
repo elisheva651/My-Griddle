@@ -1,0 +1,64 @@
+# =============================
+# C++ build artifacts
+# =============================
+*.o
+*.obj
+*.so
+*.a
+*.exe
+*.out
+*.dll
+
+# Makefile-generated files
+my_game
+*.d
+*.dSYM/
+
+# =============================
+# Python
+# =============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments (if any)
+venv/
+env/
+.venv/
+
+# =============================
+# IDEs and editors
+# =============================
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs (CLion, PyCharm)
+.idea/
+*.iml
+
+# =============================
+# OS-specific
+# =============================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# =============================
+# Temporary / input files
+# =============================
+# Images uploaded / generated
+input/input_img.jpg
+input/*.jpg
+input/*.png
+
+# Any temporary logs
+*.log

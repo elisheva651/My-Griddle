@@ -7,11 +7,6 @@
 #include "../../general_constants.hpp"
 
 namespace fs = std::filesystem;
-
-// // You can define these somewhere, like in a constants header
-// const std::string IMAGE_SAVE_PATH = "";       // adjust as needed
-// const std::string IMAGE_SAVE_FILENAME = "input_img.jpg";
-
 cv::Mat PathUpload::load_image(const std::string& path) {
     // Load image in BGR format
     cv::Mat img = cv::imread(path, cv::IMREAD_COLOR);
@@ -26,11 +21,8 @@ cv::Mat PathUpload::load_image(const std::string& path) {
 
 void PathUpload::save_image(const cv::Mat& img) {
     cv::Mat save_img;
-    // Convert back to BGR for saving as jpg
-    // Ensure save folder exists
-            // fs::create_directories(IMAGE_SAVE_PATH);
-
-    std::string path = fs::path(IMAGE_SAVE_PATH) / IMAGE_SAVE_FILENAME;
+  
+    std::string path = fs::path(IMAGE_INPUT_SAVE_PATH) / IMAGE_INPUT_SAVE_FILENAME;
     cv::cvtColor(img, save_img, cv::COLOR_RGB2BGR);
 
     if (!cv::imwrite(path, save_img)) {
@@ -52,7 +44,7 @@ Status PathUpload::receive_input()
         try {
             cv::Mat img = load_image(path);
             save_image(img);
-            return SUCCESS;
+            return Status::SUCCESS;
         }
         catch (const std::exception& e) {
             std::cout << "Error: " << e.what() << "\n";
@@ -64,5 +56,5 @@ Status PathUpload::receive_input()
             }
         }
     }
-    return EXIT;
+    return Status::EXIT;
 }

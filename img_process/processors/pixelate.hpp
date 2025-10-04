@@ -1,10 +1,13 @@
 #pragma once
 
-#include "abs_processors.hpp"
-#include "../../matrix.hpp"
+#include "abs_processor.hpp"
+#include "../matrix.hpp"
+#include "../pixel.hpp"
 
 namespace img
 {
+
+struct PixelateData;
 
 class Pixelate : public AbsProcessors
 {
@@ -18,10 +21,9 @@ public:
 
 private:
     size_t square_wall_len_;
-    size_t num_threads_;
 
 private:
-    void avg_each_channel(Image const &source, PixelateData const& data, Matrix<PixelRgb>& pixels, size_t block_row, size_t block_col);
+    void avg_each_channel(Image const &source, PixelateData const& data, Matrix<RGB>& pixels, size_t block_row, size_t block_col);
 };
 
 struct PixelateData
@@ -32,9 +34,6 @@ struct PixelateData
     size_t height_;
     size_t width_;
     size_t square_wall_len_;
-    int num_channels_;
 };
 
 } // namespace img
-
-#include "inls/pixelate.inl"

@@ -23,10 +23,10 @@ std::string_view InputManager::choose_loader()
 Status InputManager::get_input()
 {
     Status status = loader_names[loader_name]->receive_input();
-    while (status != SUCCESS && status != EXIT)
+    while (status != Status::SUCCESS && status != Status::EXIT)
     {
         status = loader_names[loader_name]->receive_input();
     }
     
-    return SUCCESS;
+    return Status::SUCCESS;
 }

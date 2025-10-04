@@ -18,7 +18,7 @@ TARGET := my_game
 # Source files
 SRCS := $(wildcard *.cpp) $(wildcard input/*.cpp) $(wildcard input/**/*.cpp) \
 		$(wildcard game/**/*.cpp) $(wildcard game/*.cpp) \
-		$(wildcard img_process/*.cpp) 
+		$(wildcard img_process/*.cpp) $(wildcard img_process/processors/*.cpp)  
 
 # Object files
 OBJS := $(SRCS:.cpp=.o)

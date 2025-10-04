@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../general_constants.hpp"
+
 class AbsGame
 {
 private:

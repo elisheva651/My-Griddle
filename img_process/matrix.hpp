@@ -18,11 +18,7 @@ class Matrix {
 
 public:
     // Constructors
-
-    /**
-     * @brief Default constructor is deleted. Must specify size.
-     */
-    Matrix() = delete;
+    Matrix() = default;
 
     /**
      * @brief Constructs a Matrix of given dimensions, initialized with a specified value.

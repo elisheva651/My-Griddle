@@ -1,11 +1,10 @@
 #pragma once
 
-#include "img/img.hpp"
+#include "../img.hpp"
 
 namespace img
 {
 
-template <typename T>
 class AbsProcessors
 {
 public:
@@ -13,7 +12,7 @@ public:
 
     virtual ~AbsProcessors() noexcept = default;
 
-    virtual Image<T> process(Image<T> const& source) = 0;
+    virtual Image process(Image const& source) = 0;
 };
 
 } // namespace img

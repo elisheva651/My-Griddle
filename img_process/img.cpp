@@ -31,6 +31,15 @@ Image::Image(const std::string& jpg_path)
     }
 }
 
+Image::Image(const Matrix<RGB> &pixels)
+: m_pixels(pixels) // copy the pixel matrix
+{
+    if (pixels.rows() == 0 || pixels.cols() == 0) {
+        throw std::runtime_error("Cannot create Image from empty Matrix");
+    }
+
+    m_img_size = { static_cast<size_t>(pixels.rows()), static_cast<size_t>(pixels.cols()) };
+}
 
 RGB* Image::operator[](size_t row) noexcept {
     return m_pixels[row];
@@ -42,6 +51,19 @@ const RGB* Image::operator[](size_t row) const noexcept {
 
 std::pair<size_t, size_t> Image::get_img_size() const {
     return m_img_size;
+}
+
+void Image::save_to_file(const std::string &path) const {
+    cv::Mat img_cv(m_img_size.first, m_img_size.second, CV_8UC3);
+
+    for (size_t i = 0; i < m_img_size.first; ++i) {
+        for (size_t j = 0; j < m_img_size.second; ++j) {
+            const RGB& px = m_pixels[i][j];
+            img_cv.at<cv::Vec3b>(i, j) = cv::Vec3b(px.b, px.g, px.r);
+        }
+    }
+
+    cv::imwrite(path, img_cv);
 }
 
 } // namespace img

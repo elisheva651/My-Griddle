@@ -23,11 +23,12 @@ void GameManager::run()
         return;
     }
     
-    AbsGame game = m_games[m_game_type]{};
-    
-    if (game.init(); != Status::SUCCESS) {
+    std::unique_ptr<AbsGame> game = std::make_unique<Griddle>();
+    if (game->init() != Status::SUCCESS) {
         return;
     }
+    
+    game->run();
     
     // if (game.run(); != Status::SUCCESS) {
     //     return;

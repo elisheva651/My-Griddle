@@ -21,5 +21,7 @@ private:
 
 private:
     GameType choose_game();
+    Status input();
+    Status init();
     
 };

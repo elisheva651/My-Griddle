@@ -22,17 +22,16 @@ void GameManager::run()
     if (input() != Status::SUCCESS) {
         return;
     }
-
-    if (init() != Status::SUCCESS) {
+    
+    AbsGame game = m_games[m_game_type]{};
+    
+    if (game.init(); != Status::SUCCESS) {
         return;
     }
-        // Image(const std::string& jpg_path, std::vector<std::pair<T, T>> ranges);
-
     
-
-    
-    //init
-    //run
+    // if (game.run(); != Status::SUCCESS) {
+    //     return;
+    // }
     //end
 }
 
@@ -55,17 +54,6 @@ Status GameManager::input()
         }
         default:
             break;
-    }
-    return Status::SUCCESS;
-}
-
-Status GameManager::init()
-{
-    try {
-        std::string path = get_image_full_path();
-        img::Image image(path);
-    } catch (const std::exception& e) {
-        return Status::FAIL;
     }
     return Status::SUCCESS;
 }

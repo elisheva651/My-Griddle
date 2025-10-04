@@ -9,4 +9,5 @@ public:
     virtual ~AbsGame() = default;
 
     virtual void run() = 0;
+    virtual Status init() = 0;
 };

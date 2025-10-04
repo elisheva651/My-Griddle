@@ -4,7 +4,7 @@
 #include <opencv2/imgcodecs.hpp>
 
 #include "abs_get_img.hpp"
-#include "../../status.hpp"
+#include "../../general_constants.hpp"
 
 class PathUpload : public AbsGetImg
 {
